@@ -1,0 +1,106 @@
+<html>
+<%-include('partials/head.html');%>
+
+	<body>
+		<header>
+			<%-include('partials/navegacion.html');%>
+		</header>
+		<table class="table table-success table-striped">
+			<thead>
+				<tr>
+					<th>ID</th>
+					<th>Nombre</th>
+					<th>Domicilio</th>
+					<th>Telefono</th>
+				</tr>
+			</thead>
+			<% if (contactos) { %>
+				<tbody>
+					<% for(var i=0; i < contactos.length; i++ ) { %>
+						<tr>
+							<td>
+								<%= contactos[i].idContactos %>
+							</td>
+							<td>
+								<%= contactos[i].nombre %>
+							</td>
+							<td>
+								<%= contactos[i].domicilio %>
+							</td>
+							<td>
+								<%= contactos[i].telefono %>
+							</td>
+						</tr>
+						<% } %>
+				</tbody>
+				<% } %>
+
+		</table>
+		<form action="/contactos" method="post">
+			<button type="submit" id="btnV">Ver</button>
+		</form>
+		<form action="/contactos" method="get">
+			<button action="/contactos" id="btnL">Limpiar</button>
+		</form>
+
+		<h3 class="table table-success table-striped">Modificar Contacto</h3>
+
+		
+		<form action="/contactos/id" method="get">
+			<label for="idContactos">Contacto ID:</label>
+			<input type="text" id="idContactos" name="idContactos">
+			<button type="submit">Buscar</button>
+		</form>
+		</div>
+		</div>
+		<% if ( contacto ) { %>
+			<div class="i">
+				<form action="/contactos/id" method="post">
+					<input type="hidden" name="idContactos" id="idContactos" value="<%=contacto.idContactos%>">
+					<label for="nombre">Nombre:</label>
+					<input type="text" id="nombre" name="nombre" value="<%=contacto.nombre%>">
+					<label for="domicilio">Domicilio:</label>
+					<input type="text" id="domicilio" name="domicilio" value="<%=contacto.domicilio%>">
+					<label for="telefono">Telefono:</label>
+					<input type="text" id="telefono" name="telefono" value="<%=contacto.telefono%>">
+					<button type="submit" id="G">Guardar</button>
+				</form>
+
+				<form action="/contactos/id/borrar" method="post" id="buscar">
+					<input type="hidden" name="idContactos" id="idContactos" value="<%=contacto.idContactos%>">
+					<button type="submit">Eliminar</button>
+				</form>
+			</div>
+			<% } %>
+
+
+				<h3>Agregar</h3>
+
+				<div class="table table-success table-striped">
+				<form action="/contactos/nuevo" method="post">
+					<div>
+						<div>
+							<label for="nombre">Nombre</label>
+							<input type="text" name="nombre" id="nombre">
+						</div>
+						<div>
+							<label for="domicilio">Domicilio</label>
+							<input type="text" name="domicilio" id="domicilio">
+						</div>
+						<div>
+							<label for="telefono">Telefono</label>
+							<input type="text" name="telefono" id="telefono">
+						</div>
+					</div>
+					<div>
+						<button type="submit" id="btnG">Guardar</button>
+					</div>
+				</form>
+				</div>
+
+
+	</body>
+
+	<%-include('partials/footer.html');%>
+
+</html>

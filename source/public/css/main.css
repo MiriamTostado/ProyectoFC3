@@ -1,0 +1,40 @@
+#seccion {
+    width: 1200px;
+    height: 1000px;
+    background-color: antiquewhite;
+    max-width: 0 auto;
+}
+
+img {
+    display: block;
+    border: 1px sloid #ddd;
+    margin: 0 auto;
+    border-radius: 4px;
+    padding: 5px;
+    width: 150px;
+}
+h3{
+     text-align: center;
+}
+#btnV{
+    background-color: aliceblue;
+    width: 4rem;
+}
+#btnL{
+    background-color: aliceblue;
+}
+body{
+    background-color: aliceblue;
+}
+.i{
+    margin-left: 25%;
+}
+#btnG{
+    margin-left: 47%;
+}
+#buscar{
+    margin-left: 30%;
+}
+#G{
+    margin-left: 8%;
+}
